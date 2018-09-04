@@ -4,7 +4,8 @@ import {AuthService} from './auth/auth/auth.service';
 import {select, Store} from '@ngrx/store';
 import * as fromMusic from './music/store/reducer';
 import {takeWhile} from 'rxjs/operators';
-import {CountService} from './music/services/count.service';
+import * as fromRoot from './state/app.state';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import {CountService} from './music/services/count.service';
 })
 export class AppComponent implements OnInit  {
   title = 'iTunesNgRx';
-  c = 0;
+ val$: Observable<number> ;
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
@@ -21,11 +22,10 @@ export class AppComponent implements OnInit  {
 
 
   constructor(private router: Router,
-              private authService: AuthService, private countService: CountService) { }
+              private authService: AuthService, private store: Store<fromRoot.State>) { }
 
  ngOnInit() {
-    this.c = this.countService.getCount();
-    console.log('count: ', this.c);
+   this.val$ = this.store.pipe(select(fromMusic.getCount));
  }
   logOut(): void {
     this.authService.logOut();

@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import * as MusicActions from '../../music/store/actions/music.action';
+import * as fromMusic from '../../music/store/reducer';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../state/app.state';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   redirectUrl: string;
 
-  constructor() { }
+  constructor(private store: Store<fromRoot.State>) { }
 
   isLoggedIn(): boolean {
     const uName: string = localStorage.getItem('uName');
@@ -24,5 +28,6 @@ export class AuthService {
 
   logOut() {
     localStorage.clear();
+    this.store.dispatch(new MusicActions.ClearMusic());
   }
 }

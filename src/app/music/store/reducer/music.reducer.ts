@@ -7,13 +7,15 @@ export interface MusicState {
   favorite: any[];
   Music: any[];
   error: string;
+  count: number;
 }
 
 const initialState: MusicState = {
   selectedMusic: null,
   favorite: [],
   Music: [],
-  error: ''
+  error: '',
+  count: 0
 };
 
 export function reducer(state = initialState, action: MusicActions): MusicState {
@@ -41,12 +43,21 @@ export function reducer(state = initialState, action: MusicActions): MusicState 
     case MusicActionTypes.AddFavorite:
       return {
         ...state,
-        favorite: [...state.favorite, action.payload]
+        favorite: [...state.favorite, action.payload],
+        count: state.favorite.length + 1
       };
     case MusicActionTypes.DeleteFavorite:
       return {
         ...state,
         favorite: state.favorite.filter(music => music !== action.payload),
+        count: state.count - 1,
+        error: ''
+      };
+    case MusicActionTypes.ClearMusic:
+      return {
+        ...state,
+        selectedMusic: null,
+        Music: [],
         error: ''
       };
     default:

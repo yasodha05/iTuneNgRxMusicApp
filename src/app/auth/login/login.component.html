@@ -1,4 +1,10 @@
-<form class="form-horizontal" novalidate (ngSubmit)="login(loginForm)" #loginForm="ngForm" autocomplete="off">
+
+<div class="card">
+  <div class="card-header">
+    Login
+  </div>
+  <div class="card-body">
+<form class="form-signin" novalidate (ngSubmit)="login(loginForm)" #loginForm="ngForm" autocomplete="off">
   <fieldset>
     <div class="form-group" [ngClass]="{'has-error': (userNameVar.touched ||
                                                 userNameVar.dirty) &&
@@ -56,13 +62,11 @@
                                     Log In
                                 </button>
                             </span>
-        <span>
-                                <a class="btn btn-default"
-                                   (click)="cancel()">
-                                    Cancel
-                                </a>
-                            </span>
+
       </div>
     </div>
   </fieldset>
 </form>
+  </div>
+</div>
+

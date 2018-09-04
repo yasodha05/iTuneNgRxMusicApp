@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {select, Store} from '@ngrx/store';
-import * as fromMusic from '../../store/reducer';
+import * as fromRoot from '../../../state/app.state';
 import * as MusicActions from '../../store/actions/music.action';
 import {Observable} from 'rxjs';
+import * as fromMusic from '../../store/reducer';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class MusicShellComponent implements OnInit {
   music$: Observable<any[]>;
   errorMessage$: Observable<string>;
 
-  constructor(private store: Store<fromMusic.State>) { }
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.music$ = this.store.pipe(select(fromMusic.getMusic));
