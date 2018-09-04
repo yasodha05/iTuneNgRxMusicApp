@@ -19,29 +19,34 @@ import {HttpClientModule} from '@angular/common/http';
 import {MusicService} from './music/music.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthguardService} from './auth/auth/authguard.service';
+import {MusicModule} from './music/music.module';
 
 const routes = [
   {
     path: 'music',
     canActivate: [AuthguardService ],
-    loadChildren: './music/music.module#MusicModule'
+    component: MusicShellComponent
+    // loadChildren: './music/music.module#MusicModule'
   },
   {path: 'login', component: LoginComponent},
-   // {
-   //   path: 'fav',
-   //  component: MyFavComponent
-   // }
+   {
+     path: 'fav',
+     canActivate: [AuthguardService ],
+    component: MyFavComponent
+   }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    /*MusicShellComponent*/
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    MusicModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot({}),

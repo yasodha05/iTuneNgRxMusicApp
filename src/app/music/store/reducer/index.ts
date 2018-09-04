@@ -1,10 +1,10 @@
-import * as fromRoot from '../../../state/app.state';
+// import * as fromRoot from '../../../state/app.state';
 import * as fromMusic from './music.reducer';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 
-export interface State extends fromRoot.State {
-  Music: fromMusic.MusicState;
-}
+// export interface State extends fromRoot.State {
+//   Music: fromMusic.MusicState;
+// }
 
 const getMusicFeatureState = createFeatureSelector<fromMusic.MusicState>('music');
 
@@ -26,4 +26,9 @@ export const getSelectedMusic = createSelector(
 export const getFavorite = createSelector(
   getMusicFeatureState,
   state => state.favorite
+);
+
+export const getCount = createSelector(
+  getMusicFeatureState,
+  state => state.count
 );

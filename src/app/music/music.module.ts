@@ -12,20 +12,16 @@ import {MusicEffects} from './store/music.effects';
 import { reducer } from './store/reducer/music.reducer';
 import {RouterModule, Routes} from '@angular/router';
 
-const musicRoutes: Routes = [
-  { path: '', component: MusicShellComponent },
-  { path: 'fav', component: MyFavComponent }
-];
+
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(musicRoutes),
     StoreModule.forFeature('music', reducer),
     EffectsModule.forFeature(
       [MusicEffects]
     )
   ],
-  declarations: [MyFavComponent, MusicShellComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent]
+  declarations: [MyFavComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent, MusicShellComponent]
 })
 export class MusicModule { }

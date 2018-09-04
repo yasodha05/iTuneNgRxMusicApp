@@ -1,10 +1,11 @@
-
+<!--<div>music-list</div>-->
 
 <div class="card" *ngIf="music"  style="margin-top: 20px;">
 
   <div class="list-group">
     <button class="list-group-item list-group-item-action rounded-0"
             *ngFor="let m of music | slice: s : e;"
+            [ngClass]="{'active': m === selectedMusic}"
             (click)="musicSelected(m)">{{ m.trackName }}
 
     </button>
@@ -17,8 +18,7 @@
           </a>
         </li>
         <li class="page-item"  *ngFor="let i of numbers;"><a class="page-link" (click)="pageNum(i)">{{i+1}}</a></li>
-        <!--<li class="page-item"><a class="page-link" (click)="pageNum(11)">2</a></li>-->
-        <!--<li class="page-item"><a class="page-link" (click)="pageNum(12)">3</a></li>-->
+
         <li class="page-item">
           <a class="page-link"  aria-label="Next">
             <span aria-hidden="true">&raquo;</span>

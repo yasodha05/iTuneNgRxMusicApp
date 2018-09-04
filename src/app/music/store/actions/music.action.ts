@@ -6,7 +6,8 @@ export enum MusicActionTypes {
   GetFail = 'GetFail',
   CurrentMusic = 'Current Music',
   AddFavorite = 'Add Favorite',
-  DeleteFavorite = 'Delete Favorite'
+  DeleteFavorite = 'Delete Favorite',
+  ClearMusic = 'Clear Music'
 }
 
 export class GetMusic implements Action {
@@ -38,7 +39,13 @@ export class GetFail implements Action {
   constructor(public payload) { }
 }
 
+export class ClearMusic implements Action {
+  readonly type = MusicActionTypes.ClearMusic;
+
+
+}
 
 
 
-export type MusicActions = GetMusic | GetSuccess | GetFail | CurrentMusic | AddFavorite | DeleteFavorite;
+
+export type MusicActions = GetMusic | GetSuccess | GetFail | CurrentMusic | AddFavorite | DeleteFavorite | ClearMusic;
