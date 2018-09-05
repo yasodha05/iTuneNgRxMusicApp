@@ -7,7 +7,8 @@ export enum MusicActionTypes {
   CurrentMusic = 'Current Music',
   AddFavorite = 'Add Favorite',
   DeleteFavorite = 'Delete Favorite',
-  ClearMusic = 'Clear Music'
+  ClearMusic = 'Clear Music',
+  SetPageNo = 'Set Page Num'
 }
 
 export class GetMusic implements Action {
@@ -44,8 +45,12 @@ export class ClearMusic implements Action {
 
 
 }
+export class SetPageNo implements Action {
+  readonly type = MusicActionTypes.SetPageNo;
+  constructor(public payload: number) { }
+}
 
 
 
-
-export type MusicActions = GetMusic | GetSuccess | GetFail | CurrentMusic | AddFavorite | DeleteFavorite | ClearMusic;
+export type MusicActions = GetMusic | GetSuccess | GetFail | CurrentMusic | AddFavorite | DeleteFavorite
+  | ClearMusic | SetPageNo;

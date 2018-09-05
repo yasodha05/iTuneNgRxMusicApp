@@ -11,6 +11,8 @@
       [selectedMusic]="selectedMusic$ | async"
       [errorMessage]="errorMessage$ | async"
       (selected)="musicSelected($event)"
+      (setPage)="setPNo($event)"
+      [page]="num$ | async"
     ></app-music-list>
   </div>
   <div class='col-md-8'>

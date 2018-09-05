@@ -16,13 +16,14 @@ export class MusicShellComponent implements OnInit {
   selectedMusic$: Observable<any>;
   music$: Observable<any[]>;
   errorMessage$: Observable<string>;
-
+  num$: Observable<number>;
   constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.music$ = this.store.pipe(select(fromMusic.getMusic));
     this.errorMessage$ = this.store.pipe(select(fromMusic.getError));
     this.selectedMusic$ = this.store.pipe(select(fromMusic.getSelectedMusic));
+    this.num$ = this.store.pipe(select(fromMusic.getPage));
 
   }
   searchMusic(value: string): void {
@@ -37,6 +38,9 @@ export class MusicShellComponent implements OnInit {
   addFavorite(music: any) {
     this.store.dispatch(new MusicActions.AddFavorite(music));
     alert(music.trackName + ' added to favorite');
+  }
+  setPNo(no: number){
+    this.store.dispatch(new MusicActions.SetPageNo(no));
   }
 
 }

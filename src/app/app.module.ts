@@ -20,6 +20,7 @@ import {MusicService} from './music/music.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthguardService} from './auth/auth/authguard.service';
 import {MusicModule} from './music/music.module';
+import {MoreDetailComponent} from './music/component/more-detail/more-detail.component';
 
 const routes = [
   {
@@ -27,6 +28,11 @@ const routes = [
     canActivate: [AuthguardService ],
     component: MusicShellComponent
     // loadChildren: './music/music.module#MusicModule'
+  },
+  {
+    path: 'detail',
+    canActivate: [AuthguardService ],
+    component: MoreDetailComponent
   },
   {path: 'login', component: LoginComponent},
    {
@@ -57,7 +63,7 @@ const routes = [
     }),
     EffectsModule.forRoot([])
   ],
-  providers: [MusicService],
+  providers: [MusicService, Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

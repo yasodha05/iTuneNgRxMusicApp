@@ -4,28 +4,15 @@
 
   <div class="list-group">
     <button class="list-group-item list-group-item-action rounded-0"
-            *ngFor="let m of music | slice: s : e;"
+            *ngFor="let m of music  | paginate: { itemsPerPage: 10, currentPage: p }"
             [ngClass]="{'active': m === selectedMusic}"
             (click)="musicSelected(m)">{{ m.trackName }}
 
     </button>
-    <nav aria-label="Page navigation example" >
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link"  aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item"  *ngFor="let i of numbers;"><a class="page-link" (click)="pageNum(i)">{{i+1}}</a></li>
+    <div class="card-footer">
+    <pagination-controls (click)="pageNum($event)" (pageChange)="p = $event"></pagination-controls>
+    </div>
 
-        <li class="page-item">
-          <a class="page-link"  aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+
   </div>
 </div>

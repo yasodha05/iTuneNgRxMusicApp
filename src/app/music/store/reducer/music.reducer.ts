@@ -8,6 +8,7 @@ export interface MusicState {
   Music: any[];
   error: string;
   count: number;
+  pageNum: number;
 }
 
 const initialState: MusicState = {
@@ -15,7 +16,8 @@ const initialState: MusicState = {
   favorite: [],
   Music: [],
   error: '',
-  count: 0
+  count: 0,
+  pageNum: 1
 };
 
 export function reducer(state = initialState, action: MusicActions): MusicState {
@@ -58,7 +60,13 @@ export function reducer(state = initialState, action: MusicActions): MusicState 
         ...state,
         selectedMusic: null,
         Music: [],
-        error: ''
+        error: '',
+        pageNum : 1
+      };
+    case MusicActionTypes.SetPageNo:
+      return {
+        ...state,
+       pageNum : action.payload
       };
     default:
       return state;

@@ -32,3 +32,7 @@ export const getCount = createSelector(
   getMusicFeatureState,
   state => state.count
 );
+export const getPage = createSelector(
+  getMusicFeatureState,
+  state => state.pageNum
+);
