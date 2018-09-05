@@ -5,7 +5,7 @@
     <app-search (search)="searchMusic($event)" ></app-search>
   </div>
 
-  <div class='col-md-4'>
+  <div class='col-md-6'>
     <app-music-list
       [music]="music$ | async"
       [selectedMusic]="selectedMusic$ | async"
@@ -13,7 +13,7 @@
       (selected)="musicSelected($event)"
     ></app-music-list>
   </div>
-  <div class='col-md-8'>
+  <div class='col-md-6'>
     <app-music-detail
       [selectedMusic]="selectedMusic$ | async"
       [errorMessage]="errorMessage$ | async"

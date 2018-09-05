@@ -39,7 +39,8 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-primary" (click)="addFav(selectedMusic)">Add to Favorite</button>
+  <button type="button" class="btn btn-primary" ngClass="floated" (click)="addFav(selectedMusic)">Add to Favorite</button>
+  <button class="btn btn-primary" ngClass="floated" (click)="moreDetail(selectedMusic.trackId)">More Detail</button>
     </div>
     </div>
 </div>

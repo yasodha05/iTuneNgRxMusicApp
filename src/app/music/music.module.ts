@@ -11,6 +11,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {MusicEffects} from './store/music.effects';
 import { reducer } from './store/reducer/music.reducer';
 import {RouterModule, Routes} from '@angular/router';
+import { MoreDetailComponent } from './component/more-detail/more-detail.component';
 
 
 
@@ -22,6 +23,6 @@ import {RouterModule, Routes} from '@angular/router';
       [MusicEffects]
     )
   ],
-  declarations: [MyFavComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent, MusicShellComponent]
+  declarations: [MyFavComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent, MusicShellComponent, MoreDetailComponent]
 })
 export class MusicModule { }

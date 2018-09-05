@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-music-detail',
@@ -10,12 +11,14 @@ export class MusicDetailComponent implements OnInit {
   @Input() selectedMusic: any;
   @Output() fav = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
-  addFav(data){
+  moreDetail(trackId: number) {
+       this.router.navigate(['/more-detail', trackId]);
+  }
+  addFav(data) {
     this.fav.emit(data);
 
   }

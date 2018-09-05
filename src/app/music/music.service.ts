@@ -20,7 +20,7 @@ export class MusicService {
       catchError(this.handleError)
     );
   }
-  private handleError(err: HttpErrorResponse) {
+    private handleError(err: HttpErrorResponse) {
     console.log(err);
     let errorMessage: string;
     if (err.error instanceof Error) {
