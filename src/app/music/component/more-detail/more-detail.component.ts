@@ -24,6 +24,7 @@ export class MoreDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((data: Params) => console.log(data));
   }
   goBack() {
+    console.log("Location back api used to navigate");
     this.location.back();
     /*console.log(this.previousUrl);*/
   }
