@@ -10,9 +10,8 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {MusicEffects} from './store/music.effects';
 import { reducer } from './store/reducer/music.reducer';
-import {RouterModule, Routes} from '@angular/router';
 import { MoreDetailComponent } from './component/more-detail/more-detail.component';
-
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 
 @NgModule({
@@ -23,6 +22,6 @@ import { MoreDetailComponent } from './component/more-detail/more-detail.compone
       [MusicEffects]
     )
   ],
-  declarations: [MyFavComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent, MusicShellComponent, MoreDetailComponent]
+  declarations: [MyFavComponent, SearchComponent, MusicListComponent, MusicDetailComponent, MusicSearchComponent, MusicShellComponent, MoreDetailComponent, JwPaginationComponent]
 })
 export class MusicModule { }

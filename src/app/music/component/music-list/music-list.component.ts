@@ -10,26 +10,31 @@ export class MusicListComponent implements OnInit, OnChanges {
   @Input() errorMessage: string;
   @Input() selectedMusic: any;
   @Output() selected = new EventEmitter<any>();
-  s = 0;
+ /* s = 0;
   e = 10;
   total = 0;
-  numbers = [];
+  numbers = [];*/
+ pageOfItems:Array<any>;
   constructor() { }
 
   ngOnInit() {
 
   }
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+  }
   ngOnChanges() {
-    this.total = this.music.length / 10;
+  /*  this.total = this.music.length / 10;
     console.log('total', this.total);
-    this.numbers = Array(this.total).fill(0).map((x, i ) => i);
+    this.numbers = Array(this.total).fill(0).map((x, i ) => i);*/
   }
   musicSelected(m) {
   this.selected.emit(m);
   }
-  pageNum(start: number){
+ /* pageNum(start: number){
     this.s = start * 10 ;
     this.e = this.s + 10;
-  }
+  }*/
 
 }
