@@ -30,7 +30,8 @@ const routes = [
     // loadChildren: './music/music.module#MusicModule'
   },
   {
-    path: 'more-detail/:trackId',
+    path: 'detail',
+    canActivate: [AuthguardService ],
     component: MoreDetailComponent
   },
   {path: 'login', component: LoginComponent},
@@ -62,7 +63,7 @@ const routes = [
     }),
     EffectsModule.forRoot([])
   ],
-  providers: [MusicService],
+  providers: [MusicService, Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
