@@ -14,6 +14,7 @@ export class MusicDetailComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+
   }
   moreDetail(trackId: number) {
        this.router.navigate(['/more-detail', trackId]);
@@ -21,6 +22,10 @@ export class MusicDetailComponent implements OnInit {
   addFav(data) {
     this.fav.emit(data);
 
+  }
+  detailRoute(id: number){
+
+    this.router.navigate(['/detail'], { queryParams: { tracKId: id } });
   }
 
 }
