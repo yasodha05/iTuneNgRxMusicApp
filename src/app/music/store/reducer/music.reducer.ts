@@ -2,7 +2,7 @@ import { MusicActionTypes, MusicActions } from '../actions/music.action';
 
 
 export interface MusicState {
-  selectedMusic: any;
+  selectedMusicId: number;
   favorite: any[];
   Music: any[];
   error: string;
@@ -11,7 +11,7 @@ export interface MusicState {
 }
 
 const initialState: MusicState = {
-  selectedMusic: null,
+  selectedMusicId: 0,
   favorite: [],
   Music: [],
   error: '',
@@ -39,7 +39,7 @@ export function reducer(state = initialState, action: MusicActions): MusicState 
     case MusicActionTypes.CurrentMusic:
       return {
         ...state,
-        selectedMusic: action.payload
+        selectedMusicId: action.payload.trackId
       };
     case MusicActionTypes.AddFavorite:
       return {
@@ -57,7 +57,7 @@ export function reducer(state = initialState, action: MusicActions): MusicState 
     case MusicActionTypes.ClearMusic:
       return {
         ...state,
-        selectedMusic: null,
+        selectedMusicId: 0,
         Music: [],
         error: '',
         pageNum : 1
@@ -67,7 +67,7 @@ export function reducer(state = initialState, action: MusicActions): MusicState 
         ...state,
        pageNum : action.payload
       };
-    default:
+      default:
       return state;
   }
 }

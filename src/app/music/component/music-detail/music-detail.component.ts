@@ -25,7 +25,7 @@ export class MusicDetailComponent implements OnInit {
   }
   detailRoute(id: number){
 
-    this.router.navigate(['/detail'], { queryParams: { tracKId: id } });
+     this.router.navigate(['/detail'], { queryParams: { trackId: id } });
   }
 
 }

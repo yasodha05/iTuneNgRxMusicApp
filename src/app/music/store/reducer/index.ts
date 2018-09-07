@@ -2,9 +2,7 @@
 import * as fromMusic from './music.reducer';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 
-// export interface State extends fromRoot.State {
-//   Music: fromMusic.MusicState;
-// }
+
 
 const getMusicFeatureState = createFeatureSelector<fromMusic.MusicState>('music');
 
@@ -12,7 +10,10 @@ export const getMusic = createSelector(
   getMusicFeatureState,
   state => state.Music
 );
-
+export const getMusicId = createSelector(
+  getMusicFeatureState,
+  state => state.selectedMusicId
+);
 export const getError = createSelector(
   getMusicFeatureState,
   state => state.error
@@ -20,7 +21,10 @@ export const getError = createSelector(
 
 export const getSelectedMusic = createSelector(
   getMusicFeatureState,
-  state => state.selectedMusic
+  getMusicId,
+  (state, selectedMusicId ) => {
+    return selectedMusicId ? state.Music.find(x => x.trackId === selectedMusicId) : null;
+  }
 );
 
 export const getFavorite = createSelector(
@@ -36,3 +40,9 @@ export const getPage = createSelector(
   getMusicFeatureState,
   state => state.pageNum
 );
+export const getDetail = createSelector(
+  getMusicFeatureState,
+  state => state.Music.filter(x => x)
+);
+
+

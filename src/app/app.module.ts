@@ -21,6 +21,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthguardService} from './auth/auth/authguard.service';
 import {MusicModule} from './music/music.module';
 import {MoreDetailComponent} from './music/component/more-detail/more-detail.component';
+import { CartComponent } from './cart/cart.component';
+import {CartModule} from './cart/cart.module';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes = [
   {
@@ -39,13 +43,26 @@ const routes = [
      path: 'fav',
      canActivate: [AuthguardService ],
     component: MyFavComponent
-   }
+   },
+  {
+    path: 'cart',
+    canActivate: [AuthguardService ],
+    component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent},
+  {path: 'confirm', component: ConfirmationComponent}
+
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    CartComponent,
+    CheckoutComponent,
+    ConfirmationComponent,
     /*MusicShellComponent*/
   ],
   imports: [
@@ -53,6 +70,7 @@ const routes = [
     HttpClientModule,
     FormsModule,
     MusicModule,
+    CartModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot({}),
