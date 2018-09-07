@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
   }
   makePayment(){
     this.store.dispatch(new CartActions.ClearCart());
-    this.router.navigate(['/confirm']);
+    alert('Payment successful');
   }
 
 }

@@ -24,7 +24,6 @@ import {MoreDetailComponent} from './music/component/more-detail/more-detail.com
 import { CartComponent } from './cart/cart.component';
 import {CartModule} from './cart/cart.module';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes = [
   {
@@ -52,7 +51,6 @@ const routes = [
   {
     path: 'checkout',
     component: CheckoutComponent},
-  {path: 'confirm', component: ConfirmationComponent}
 
 ]
 
@@ -61,9 +59,8 @@ const routes = [
     AppComponent,
     LoginComponent,
     CartComponent,
-    CheckoutComponent,
-    ConfirmationComponent,
-    /*MusicShellComponent*/
+    CheckoutComponent
+       /*MusicShellComponent*/
   ],
   imports: [
     BrowserModule,
