@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AuthService} from './auth/auth/auth.service';
 import {select, Store} from '@ngrx/store';
 import * as fromMusic from './music/store/reducer';
+import * as fromCart from './cart/store/';
 import {takeWhile} from 'rxjs/operators';
 import * as fromRoot from './state/app.state';
 import {Observable} from 'rxjs';
@@ -15,6 +16,7 @@ import {Observable} from 'rxjs';
 export class AppComponent implements OnInit  {
   title = 'iTunesNgRx';
  val$: Observable<number> ;
+ cartCount$:  Observable<number> ;
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit  {
 
  ngOnInit() {
    this.val$ = this.store.pipe(select(fromMusic.getCount));
+   this.cartCount$ = this.store.pipe(select(fromCart.getCount));
  }
   logOut(): void {
     this.authService.logOut();

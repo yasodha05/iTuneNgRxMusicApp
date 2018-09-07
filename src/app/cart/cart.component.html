@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Track id</th>
+      <th scope="col">Track Name</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of items">
+    <tr>
+      <td>{{item.trackId }}</td>
+      <td>{{item.trackName }}</td>
+      <td>{{item.artistName }}</td>
+      <td>{{item.trackPrice }}</td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteItem(item)" >Delete</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="">Total: ${{price}}</div>
+
+  <button type="button" class="btn btn-primary" [disabled]="items.length===0" routerLink="/checkout" >Checkout</button>
+</div>
